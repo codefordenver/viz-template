@@ -1,6 +1,6 @@
 import React from 'react';
 import makeGraph from '../barChart';
-import makeMap from '../map'
+import makeMap from '../map';
 
 export default class Main extends React.Component {
   componentDidMount() {

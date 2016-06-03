@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "standard",
+    "plugin:react/recommended"
+  ],
+
+  "plugins": [
+    "react"
+  ],
+
+  "rules": {
+    "camelcase": 0,
+    "no-new": 0,
+    "semi": ["error", "always"],
+    "space-before-function-paren": 0,
+    "jsx-quotes": ["error", "prefer-double"]
+  }
+}
