@@ -1,45 +1,32 @@
 [![Stories in Ready](https://badge.waffle.io/codefordenver/viz-template.png?label=ready&title=Ready)](https://waffle.io/codefordenver/viz-template)
 
-# Frontend Boilerplate
+# Data Vizualization Starter Repo
 
-A boilerplate of things that mostly shouldn't exist.
+## Up and running
 
-## Contains
+In your terminal, clone the project. After installing the depenencies, you can start the server and visit `http://localhost:3000`.
 
-- [x] [Webpack](https://webpack.github.io)
-- [x] [React](https://facebook.github.io/react/)
-- [x] [Redux](https://github.com/reactjs/redux)
-- [x] [Babel](https://babeljs.io/)
-- [x] [Autoprefixer](https://github.com/postcss/autoprefixer)
-- [x] [PostCSS](https://github.com/postcss/postcss)
-- [x] [CSS modules](https://github.com/outpunk/postcss-modules)
-- [x] [Rucksack](http://simplaio.github.io/rucksack/docs)
-- [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
-- [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [ ] Redux effects
-- [x] TodoMVC example
-
-## Setup
-
-```
+```sh
+$ git clone git@github.com:codefordenver/viz-template.git
 $ npm install
-```
-
-## Running
-
-```
 $ npm start
 ```
 
-## Build
+## Developing
 
+Before you start developing, you need to remove the remote (which is pointed to `codefordenver/viz-template` when you clone it) and add a remote that's tied to your github account.
+
+```sh
+$ git remote rm origin
+$ git remote add origin <URL to your repo here>
 ```
-$ npm run build
+
+If you don't want to deal with remotes, you can just remove the `.git` file and initialize a new git repository.
+
+```sh
+$ rm -rf .git
+$ git init
 ```
-
-## Note
-
-This is just my personal boilerplate, it may or may not be a good fit for your project(s).
 
 # License
 
