@@ -7,7 +7,6 @@ import GoogleMapsLoader from 'google-maps';
 
 GoogleMapsLoader.VERSION = '3.23';
 
-
 import style from './graph.css';
 
 function getData(id, cb) {
@@ -53,14 +52,12 @@ class Graph extends React.Component {
         const markers = [];
 
         data.forEach(point => {
-          // console.log(point)
           const loc = {
             lng: parseFloat(point['affhousing_metro_fedsubsidized_2014.x'], 10),
             lat: parseFloat(point['affhousing_metro_fedsubsidized_2014.y'], 10)
           };
           const units = point['affhousing_metro_fedsubsidized_2014.restunit'];
           const color = `#${(units & 0xFF).toString(16)}${(-units & 0xFF).toString(16).repeat(2)}`;
-          console.log('color', color)
 
           new google.maps.Circle({
             strokeWeight: 0,
