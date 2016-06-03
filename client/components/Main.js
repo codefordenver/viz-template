@@ -1,9 +1,8 @@
 import React from 'react';
 import makeGraph from '../barChart';
 import makeMap from '../map'
-import style from './graph.css';
 
-export default class Graph extends React.Component {
+export default class Main extends React.Component {
   componentDidMount() {
     makeGraph();
     makeMap();
