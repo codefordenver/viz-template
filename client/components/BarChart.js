@@ -1,5 +1,5 @@
 import React from 'react';
-import makeBarChart from '../barChart';
+import makeBarChart from '../vizualizations/barChart';
 
 export default class Main extends React.Component {
   componentDidMount() {

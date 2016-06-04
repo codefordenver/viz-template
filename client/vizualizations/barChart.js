@@ -1,4 +1,4 @@
-import { getCoDataEngineData } from './helpers/dataHelpers';
+import { getCoDataEngineData } from '../helpers/dataHelpers';
 import d3 from 'd3';
 import _ from 'lodash';
 

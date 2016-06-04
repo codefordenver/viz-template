@@ -1,5 +1,5 @@
 import React from 'react';
-import makeMap, { getColorFromNumber } from '../map';
+import makeMap, { getColorFromNumber } from '../vizualizations/map';
 import _ from 'lodash';
 
 export default class Main extends React.Component {
@@ -27,7 +27,7 @@ export default class Main extends React.Component {
     return (
       <div>
         <h2>
-          Affordable Housing Units in the Denver Metro Area
+          Affordable Housing Units in the Denver Metro Area (2014)
         </h2>
 
         <div id="map" style={ mapStyle } />
@@ -44,7 +44,7 @@ export default class Main extends React.Component {
           </div>
         </div>
 
-        <p>
+        <div>
           Datasets:
           <ul>
             <li>
@@ -58,7 +58,7 @@ export default class Main extends React.Component {
               </a>
             </li>
           </ul>
-        </p>
+        </div>
       </div>
     );
   }

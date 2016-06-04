@@ -1,15 +1,17 @@
 import GoogleMapsLoader from 'google-maps';
-import { getJSON, getCoDataEngineData } from './helpers/dataHelpers';
-import { defaultZoom, denverLatitude, denverLongitude } from './constants/graphConstants';
+import { getJSON, getCoDataEngineData } from '../helpers/dataHelpers';
+import { defaultZoom, denverLatitude, denverLongitude } from '../constants/graphConstants';
 import tinycolor from 'tinycolor2';
 import {
   Metro_Denver_Federally_Subsidized_Affordable_Housing_2014_id
-} from './constants/datasetConstants';
+} from '../constants/datasetConstants';
 
 GoogleMapsLoader.VERSION = '3.23';
 
-// const geoJSONUrl = 'https://data.colorado.gov/api/geospatial/us3j-cyz6?method=export&format=GeoJSON';
-const geoJSONUrl = 'https://data.colorado.gov/resource/49x6-nvb5.geojson?$where=within_circle(the_geom,%2039.73,%20-104.99,%2010000)&$limit=10000';
+const limitRadius = 10000;
+const numberOfBlocksToGet = 10000;
+const geoJSONUrl = 'https://data.colorado.gov/resource/49x6-nvb5.geojson' +
+                   `?$where=within_circle(the_geom,${denverLatitude},${denverLongitude},${limitRadius})&$limit=${numberOfBlocksToGet}`;
 
 const blocksPromise = getJSON(geoJSONUrl);
 const dataPromise = getCoDataEngineData(Metro_Denver_Federally_Subsidized_Affordable_Housing_2014_id);
@@ -62,13 +64,13 @@ function getDataForGeoId(geoId, dataSet, dataSetKey) {
 
 export function getColorFromNumber(number) {
   // return `#${(number & 0xFF).toString(16)}${(-number & 0xFF).toString(16).repeat(2)}`;
-  const hueScale = 450;
-  const valueScale = 400;
+  const hueScale = 200;
+  // const valueScale = 400;
 
   return tinycolor({
-    h: hueScale ? (number * 100 / hueScale) : 100,
+    h: number * 100 / hueScale,
     s: 100,
-    v: valueScale ? (number * 50 / valueScale + 50) : 100
+    v: 100
   }).toHexString();
   // return '#' + ('00000' + (number | 0).toString(16)).substr(-6);
 }
