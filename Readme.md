@@ -1,10 +1,12 @@
 [![Stories in Ready](https://badge.waffle.io/codefordenver/viz-template.png?label=ready&title=Ready)](https://waffle.io/codefordenver/viz-template)
 
-# Data Vizualization Starter Repo
+# Data Visualization Starter Repo
 
 ## Up and running
 
-In your terminal, clone the project. After installing the depenencies, you can start the server and visit `http://localhost:3000`.
+You will need [Node.js](https://nodejs.org/en/) to develop.
+
+In your terminal, clone the project. After installing the dependencies, you can start the server and visit `http://localhost:3000`.
 
 ```sh
 $ git clone git@github.com:codefordenver/viz-template.git
@@ -28,6 +30,19 @@ $ rm -rf .git
 $ git init
 ```
 
-# License
+## Adding template code to an existing repository
+
+If you are starting from an existing repository, and would like to add this template code,
+simply run the following in your terminal:
+
+```sh
+git remote add viz-template https://github.com/codefordenver/viz-template.git && \
+git fetch viz-template && \
+git merge -X theirs viz-template/master
+```
+
+> **NOTE**: The `merge -X theirs` will in this case merge in the history from this repo, but use your local existing files in place of any conflicting files with this repo.
+
+## License
 
 MIT
