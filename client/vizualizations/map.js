@@ -37,18 +37,6 @@ function addDataToMap({ google, map, data }) {
       lng: parseFloat(point['affhousing_metro_fedsubsidized_2014.x'], 10),
       lat: parseFloat(point['affhousing_metro_fedsubsidized_2014.y'], 10)
     };
-    // const units = point['affhousing_metro_fedsubsidized_2014.restunit'];
-    // const color = `#${(units & 0xFF).toString(16)}${(-units & 0xFF).toString(16).repeat(2)}`;
-
-    // new google.maps.Circle({
-    //   strokeWeight: 0,
-    //   fillColor: color,
-    //   fillOpacity: 0.65,
-    //   map,
-    //   center: loc,
-    //   radius: 700,
-    //   title: `Total Subsidized Units: ${units}`
-    // });
 
     markers.push(new google.maps.Marker({
       position: loc,
@@ -63,37 +51,27 @@ function getDataForGeoId(geoId, dataSet, dataSetKey) {
 }
 
 export function getColorFromNumber(number) {
-  // return `#${(number & 0xFF).toString(16)}${(-number & 0xFF).toString(16).repeat(2)}`;
   const hueScale = 200;
-  // const valueScale = 400;
 
   return tinycolor({
     h: number * 100 / hueScale,
     s: 100,
     v: 100
   }).toHexString();
-  // return '#' + ('00000' + (number | 0).toString(16)).substr(-6);
 }
 
 function addGeoJsonToMap({ google, map, geoJson, data }) {
-  console.log(geoJson);
   const filteredFeatures = geoJson.features.filter(feature => {
     return getDataForGeoId(feature.properties.geoidblock, data, 'affhousing_metro_fedsubsidized_2014.geoid10');
   });
   geoJson.features = filteredFeatures;
 
   map.data.addGeoJson(geoJson);
-  // map.data.setStyle({
-  //   fillColor: 'green',
-  //   strokeWeight: 1
-  // });
 
   map.data.setStyle(feature => {
     const featureData = getDataForGeoId(feature.H.geoidblock, data, 'affhousing_metro_fedsubsidized_2014.geoid10');
     const affordableUnits = featureData && featureData['affhousing_metro_fedsubsidized_2014.restunit'];
     const color = getColorFromNumber(affordableUnits);
-
-    // console.log(affordableUnits);
 
     return {
       fillColor: color,
