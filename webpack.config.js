@@ -3,7 +3,9 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+  cache: true,
   context: path.join(__dirname, './client'),
+  devTool: 'source-map',
   entry: {
     jsx: './index.js',
     html: './index.html',
