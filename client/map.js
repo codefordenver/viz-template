@@ -60,8 +60,11 @@ function getDataForGeoId(geoId, dataSet, dataSetKey) {
   return dataSet.find(datum => datum[dataSetKey] === geoId);
 }
 
-function getColorFromNumber(number, { hueScale, valueScale }) {
+export function getColorFromNumber(number) {
   // return `#${(number & 0xFF).toString(16)}${(-number & 0xFF).toString(16).repeat(2)}`;
+  const hueScale = 450;
+  const valueScale = 400;
+
   return tinycolor({
     h: hueScale ? (number * 100 / hueScale) : 100,
     s: 100,
@@ -86,7 +89,7 @@ function addGeoJsonToMap({ google, map, geoJson, data }) {
   map.data.setStyle(feature => {
     const featureData = getDataForGeoId(feature.H.geoidblock, data, 'affhousing_metro_fedsubsidized_2014.geoid10');
     const affordableUnits = featureData && featureData['affhousing_metro_fedsubsidized_2014.restunit'];
-    const color = getColorFromNumber(affordableUnits, { hueScale: 400, valueScale: 500 });
+    const color = getColorFromNumber(affordableUnits);
 
     // console.log(affordableUnits);
 

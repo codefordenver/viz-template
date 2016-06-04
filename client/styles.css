@@ -1,0 +1,33 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+}
+
+#legend {
+  margin: 0 0 12px;
+  background-color: #eee;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  float: right;
+}
+
+#legend h4 {
+  margin: 0 0 10px;
+}
+
+#legendColorBar {
+  margin: 0 10px;
+  vertical-align: middle;
+  width: 300px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#legend .unit {
+  text-align: center;
+  font-size: 12px;
+}
