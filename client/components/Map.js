@@ -19,7 +19,6 @@ export default class Main extends React.Component {
       const color = getColorFromNumber(value);
       return `${color} ${percent}%`;
     });
-
     const legendStyle = {
       background: `linear-gradient(to right, ${colors.join(', ')})`
     };

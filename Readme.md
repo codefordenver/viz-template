@@ -2,6 +2,8 @@
 
 # Data Visualization Starter Repo
 
+> **NOTE**: This repo uses javascript es2015 (transpiled to current javascript with babel.js). If you are not familiar with this, it is recommended you look at https://babeljs.io/docs/learn-es2015/ for a quick reference to get you up to speed.
+
 ## Up and running
 
 You will need [Node.js](https://nodejs.org/en/) to develop.
